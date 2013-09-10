@@ -1,4 +1,29 @@
 
   <h1>Forum</h1>
 
-  (List)
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <thead>
+
+    <tbody>
+      <% @boards.each { |board| %>
+        <tr>
+          <td><%= board.name %></td>
+          <td><%= link_to('Show', board.id)%></td>
+          <td><%= link_to('Edit', edit_board_path(board.id))%></td>
+          <td><%= link_to('Delete', board.id, method: :delete, data: { confirm: '確認要刪除嗎？'})%></td>
+        </tr>
+      <% } %>
+    </tbody>
+
+  </table>
+
+  <br />
+
+  <%= link_to('New Board', new_board_path)%>
