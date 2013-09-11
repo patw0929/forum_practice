@@ -14,9 +14,9 @@
     <tr>
       <td><%= post.title %></td>
       <td><%= post.content %></td>
-      <td><%= link_to("Show", board_post_path(@board, post)) %></td>
-      <td><%= link_to("Edit", edit_board_post_path(@board, post)) %></td>
-      <td><%= link_to("Destroy", board_post_path(@board, post), :confirm => "您確定要刪除嗎？", :method => :delete) %></td>
+      <td><%= link_to("檢視", board_post_path(@board, post)) %></td>
+      <td><%= link_to("編輯", edit_board_post_path(@board, post)) %></td>
+      <td><%= link_to("刪除", board_post_path(@board, post), :confirm => "您確定要刪除嗎？", :method => :delete) %></td>
     </tr>
   <% end %>
 
