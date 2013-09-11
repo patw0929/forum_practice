@@ -7,3 +7,11 @@
     <% end %>
   </ul>
 <% end %>
+
+<p><%= f.label :title, "文章標題" %><br />
+<%= f.text_field :title %></p>
+
+<p><%= f.label :content, "文章內容" %><br />
+<%= f.text_area :content %></p>
+
+<p><%= f.submit %></p>

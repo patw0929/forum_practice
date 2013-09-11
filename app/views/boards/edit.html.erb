@@ -1,12 +1,7 @@
 <h1>編輯版塊</h1>
 
 <%= form_for @board, :url => board_path(@board), :method => :put do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-
-  <%= f.label :name, "Board name" %>
-  <%= f.text_field :name %>
-
-  <%= f.submit "Update" %>
+  <%= render "form", :f => f %>
 <% end %>
 
 <%= link_to("返回", boards_path) %>
