@@ -1,7 +1,10 @@
 class BoardsController < ApplicationController
 
-  # TODO: 還不大懂這個的用途
-  before_filter :set_board, only: [ :show, :edit, :update, :destroy ]
+  # NOTE: before_filter
+  # 可將 Controller 中重複的方法抽出，在進入 Action 之前用 before_action
+  # :only => 代表只用在這幾個 Action 上
+  # http://ihower.tw/rails3/actioncontroller.html
+  before_filter :set_board, :only => [ :show, :edit, :update, :destroy ]
 
   # 首頁
   def index
