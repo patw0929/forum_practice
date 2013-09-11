@@ -1,6 +1,6 @@
-<h1>建立新版塊</h1>
+<h1>編輯版塊</h1>
 
-<%= form_for(@board) do |f| %>
+<%= form_for @board, :url => board_path(@board), :method => :put do |f| %>
 
   <% if @board.errors.any? %>
   <h2>發生錯誤</h2>
@@ -12,10 +12,12 @@
   </ul>
   <% end %>
 
-  <%= f.label :name, "Board name" %><br />
+
+  <%= f.label :name, "Board name" %>
   <%= f.text_field :name %>
 
-  <%= f.submit %>
+  <%= f.submit "Update" %>
+
 
 <% end %>
 

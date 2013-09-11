@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
 
+  # TODO: 還不大懂這個的用途
   before_filter :set_board, only: [ :show, :edit, :update, :destroy ]
 
   # 首頁
@@ -33,6 +34,13 @@ class BoardsController < ApplicationController
 
   # 編輯 (更新)
   def update
+
+    if @board.update_attributes(params[:board])
+      redirect_to boards_path
+    else
+      render :action => "edit"
+    end
+
   end
 
   # 刪除
