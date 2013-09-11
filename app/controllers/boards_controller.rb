@@ -1,11 +1,10 @@
 # encoding: utf-8
 class BoardsController < ApplicationController
-
   # NOTE: before_filter
   # 可將 Controller 中重複的方法抽出，在進入 Action 之前用 before_action
   # :only => 代表只用在這幾個 Action 上
   # http://ihower.tw/rails3/actioncontroller.html
-  before_filter :set_board, :only => [ :show, :edit, :update, :destroy ]
+  before_filter :set_board, :only => [:show, :edit, :update, :destroy]
 
   # 首頁
   def index
@@ -39,30 +38,24 @@ class BoardsController < ApplicationController
 
   # 編輯 (更新)
   def update
-
     if @board.update_attributes(params[:board])
       redirect_to boards_path
     else
       render :action => "edit"
     end
-
   end
 
   # 刪除
   def destroy
-
     if @board.destroy
       redirect_to boards_path
     else
       render :action => "index"
     end
-
   end
 
   private
-
-    def set_board
-      @board = Board.find(params[:id])
-    end
-
+  def set_board
+    @board = Board.find(params[:id])
+  end
 end

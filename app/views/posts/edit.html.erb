@@ -1,17 +1,7 @@
 <h1>編輯文章</h1>
 
 <%= form_for @post, :url => board_post_path(@board, @post), :method => :put do |f| %>
-
-  <% if @post.errors.any? %>
-  <h2>發生錯誤</h2>
-
-  <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-  <% end %>
-
+  <%= render :partial => "form", :locals => { :f => f } %>
 
   <p><%= f.label :title, "文章標題" %><br />
   <%= f.text_field :title %></p>
@@ -20,8 +10,6 @@
   <%= f.text_area :content %></p>
 
   <p><%= f.submit "Update" %></p>
-
-
 <% end %>
 
-<%= link_to("返回", board_posts_path(@board))%>
+<%= link_to("返回", board_posts_path(@board)) %>

@@ -4,9 +4,11 @@
 
   <ul>
     <% @posts.each do |post| %>
-      <li><%= link_to( post.title, post ) %> 
-        [<%= link_to( "編輯", edit_post_path(post) ) %>] 
-        [<%= link_to( "刪除", post, method: :delete, data: { confirm: '確認要刪除嗎？'} ) %>]</li>
+      <li>
+        <%= link_to(post.title, post) %> 
+        [<%= link_to("編輯", edit_post_path(post)) %>] 
+        [<%= link_to("刪除", post, :method => :delete, :data => { :confirm => "確認要刪除嗎？" }) %>]
+      </li>
     <% end %>
   </ul>
 

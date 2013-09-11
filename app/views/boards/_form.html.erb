@@ -1,0 +1,9 @@
+<% if @board.errors.any? %>
+  <h2>發生錯誤</h2>
+
+  <ul>
+    <% @board.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>

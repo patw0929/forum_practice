@@ -1,24 +1,12 @@
 <h1>編輯版塊</h1>
 
 <%= form_for @board, :url => board_path(@board), :method => :put do |f| %>
-
-  <% if @board.errors.any? %>
-  <h2>發生錯誤</h2>
-
-  <ul>
-    <% @board.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-  <% end %>
-
+  <%= render :partial => "form", :locals => { :f => f } %>
 
   <%= f.label :name, "Board name" %>
   <%= f.text_field :name %>
 
   <%= f.submit "Update" %>
-
-
 <% end %>
 
-<%= link_to("返回", boards_path)%>
+<%= link_to("返回", boards_path) %>
