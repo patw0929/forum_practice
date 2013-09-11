@@ -1,5 +1,7 @@
 class BoardsController < ApplicationController
 
+  before_action :set_board, only: [ :show, :destroy ]
+
   # 首頁
   def index
     @boards = Board.all
@@ -24,5 +26,21 @@ class BoardsController < ApplicationController
       render :action => "new"
     end 
   end
+
+  def destroy
+
+    if @board.destroy
+      redirect_to boards_path
+    else
+      render :action => "index"
+    end
+
+  end
+
+  private
+
+    def set_board
+      @board = Board.find(params[:id])
+    end
 
 end
