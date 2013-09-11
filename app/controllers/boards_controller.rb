@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
 
-  before_action :set_board, only: [ :show, :destroy ]
+  before_filter :set_board, only: [ :show, :edit, :update, :destroy ]
 
   # 首頁
   def index
@@ -27,6 +27,15 @@ class BoardsController < ApplicationController
     end 
   end
 
+  # 編輯
+  def edit
+  end
+
+  # 編輯 (更新)
+  def update
+  end
+
+  # 刪除
   def destroy
 
     if @board.destroy
