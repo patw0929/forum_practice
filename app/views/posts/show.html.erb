@@ -1,5 +1,5 @@
 <h1><%= @post.title %></h1>
 <p><%= simple_format(@post.content) %></p>
 
-<p><%= link_to( "編輯文章", edit_post_path ) %></p>
-<p><%= link_to( "返回", posts_path ) %></p>
+<p><%= link_to( "編輯文章", edit_board_post_path(@board, @post) ) %></p>
+<p><%= link_to( "返回", board_posts_path(@board) ) %></p>

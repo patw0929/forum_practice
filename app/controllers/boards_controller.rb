@@ -1,3 +1,4 @@
+# encoding: utf-8
 class BoardsController < ApplicationController
 
   # NOTE: before_filter
@@ -13,6 +14,7 @@ class BoardsController < ApplicationController
 
   # 單篇
   def show
+    @posts = @board.posts
   end
 
   # 新增

@@ -1,6 +1,6 @@
 <h1>編輯文章</h1>
 
-<%= form_for @post, :url => post_path(@post), :method => :put do |f| %>
+<%= form_for @post, :url => board_post_path(@board, @post), :method => :put do |f| %>
 
   <% if @post.errors.any? %>
   <h2>發生錯誤</h2>
@@ -24,4 +24,4 @@
 
 <% end %>
 
-<%= link_to("返回", boards_path)%>
+<%= link_to("返回", board_posts_path(@board))%>

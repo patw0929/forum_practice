@@ -1,4 +1,29 @@
 <h1><%= @board.name %></h1>
 
-<p><%= link_to( "編輯此版塊", edit_board_path(@board)) %></p>
+<h2>文章列表</h2>
+<table>
+  <tr>
+    <th>標題</th>
+    <th>內文</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.content %></td>
+    <td><%= link_to 'Show', board_post_path(@board, post) %></td>
+    <td><%= link_to 'Edit', edit_board_post_path(@board, post) %></td>
+    <td><%= link_to 'Destroy', board_post_path(@board, post), :confirm => '您確定要刪除嗎？', :method => :delete %></td>
+  </tr>
+  <% end %>
+
+</table>
+
+<br />
+
+<p><%= link_to( "新增文章", new_board_post_path(@board) ) %></p>
+<p><%= link_to( "編輯此版塊", edit_board_path(@board) ) %></p>
 <p><%= link_to( "返回", boards_path) %></p>
