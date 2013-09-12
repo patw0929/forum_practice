@@ -15,8 +15,10 @@
         <tr>
           <td><%= board.name %></td>
           <td><%= link_to("檢視", board) %></td>
-          <td><%= link_to("編輯", edit_board_path(board)) %></td>
-          <td><%= link_to("刪除", board, :method => :delete, :data => { :confirm => "確認要刪除嗎？" }) %></td>
+          <% if current_user && current_user.is_admin? %>
+            <td><%= link_to("A-編輯", edit_admin_board_path(board)) %></td>
+            <td><%= link_to("A-刪除", admin_boards_path, :method => :delete, :data => { :confirm => "確認要刪除嗎？" }) %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -25,4 +27,6 @@
 
   <br />
 
-  <%= link_to("新增版塊", new_board_path) %>
+  <% if current_user && current_user.is_admin? %>
+    <%= link_to("A-新增版塊", new_admin_board_path) %>
+  <% end %>

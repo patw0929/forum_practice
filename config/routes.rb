@@ -4,6 +4,12 @@ ForumPractice::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  namespace :admin do
+    resources :boards do
+      resources :posts
+    end
+  end
+
   resources :boards do
     resources :posts
   end

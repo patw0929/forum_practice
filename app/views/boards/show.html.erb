@@ -15,8 +15,15 @@
       <td><%= post.title %></td>
       <td><%= post.content %></td>
       <td><%= link_to("檢視", board_post_path(@board, post)) %></td>
-      <td><%= link_to("編輯", edit_board_post_path(@board, post)) %></td>
-      <td><%= link_to("刪除", board_post_path(@board, post), :confirm => "您確定要刪除嗎？", :method => :delete) %></td>
+      <% if current_user && @post.user == current_user %>
+        <td><%= link_to("編輯", edit_board_post_path(@board, post)) %></td>
+        <td><%= link_to("刪除", board_post_path(@board, post), :confirm => "您確定要刪除嗎？", :method => :delete) %></td>
+      <% end %>
+
+      <% if current_user && current_user.is_admin? %>
+        <td><%= link_to("A-編輯", edit_admin_board_post_path(@board, post)) %></td>
+        <td><%= link_to("A-刪除", admin_board_post_path(@board, post), :confirm => "您確定要刪除嗎？", :method => :delete) %></td>
+      <% end %>
     </tr>
   <% end %>
 
@@ -25,5 +32,7 @@
 <br />
 
 <p><%= link_to("新增文章", new_board_post_path(@board)) %></p>
-<p><%= link_to("編輯此版塊", edit_board_path(@board)) %></p>
+<% if current_user && current_user.is_admin? %>
+  <p><%= link_to("A-編輯此版塊", edit_admin_board_path(@board)) %></p>
+<% end %>
 <p><%= link_to("返回", boards_path) %></p>

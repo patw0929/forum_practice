@@ -1,0 +1,28 @@
+  <h1>版塊列表</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <thead>
+
+    <tbody>
+      <% @boards.each do |board| %>
+        <tr>
+          <td><%= board.name %></td>
+          <td><%= link_to("檢視", board) %></td>
+          <td><%= link_to("編輯", edit_board_path(board)) %></td>
+          <td><%= link_to("刪除", board, :method => :delete, :data => { :confirm => "確認要刪除嗎？" }) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <br />
+
+  <%= link_to("新增版塊", new_board_path) %>

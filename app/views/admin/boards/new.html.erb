@@ -1,0 +1,7 @@
+<h1>建立新版塊</h1>
+
+<%= form_for @board, :url => admin_boards_path do |f| %>
+  <%= render "form", :f => f %>
+<% end %>
+
+<%= link_to("返回", admin_boards_path) %>

@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   # 新增 (寫入)
   def create
     @post = @board.posts.build(params[:post])
+    @post.user_id = current_user.id
 
     if @post.save
       redirect_to board_posts_path(@board), :notice => "文章已成功建立。"
@@ -31,12 +32,12 @@ class PostsController < ApplicationController
 
   # 編輯
   def edit
-    @post = @board.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   # 編輯 (更新)
   def update
-    @post = @board.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     if @post.update_attributes(params[:post])
       redirect_to board_post_path(@board, @post), :notice => "文章已成功被更新。"
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
 
   # 刪除
   def destroy
-    @post = @board.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     if @post.destroy
       redirect_to board_posts_path(@board)

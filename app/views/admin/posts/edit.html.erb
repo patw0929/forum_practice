@@ -1,0 +1,7 @@
+<h1>編輯文章</h1>
+
+<%= form_for @post, :url => admin_board_post_path(@board, @post), :method => :put do |f| %>
+  <%= render "form",:f => f %>
+<% end %>
+
+<%= link_to("返回", board_posts_path(@board)) %>
