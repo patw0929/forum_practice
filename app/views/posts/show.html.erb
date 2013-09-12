@@ -1,7 +1,7 @@
 <h1><%= @post.title %></h1>
 <p><%= simple_format(@post.content) %></p>
 
-<% if current_user && @post.user == current_user %>
+<% if current_user && current_user.is_admin? %>
   <p><%= link_to("A-編輯文章", edit_board_post_path(@board, @post)) %></p>
 <% end %>
 <p><%= link_to("返回", board_posts_path(@board)) %></p>
