@@ -37,7 +37,7 @@ class Admin::BoardsController < ApplicationController
   # 編輯 (更新)
   def update
     if @board.update_attributes(params[:board])
-      redirect_to board_path(@board), :notice => "版塊成功地被建立了。"
+      redirect_to board_path(@board), :notice => "版塊成功地被更新了。"
     else
       render :action => "edit"
     end
