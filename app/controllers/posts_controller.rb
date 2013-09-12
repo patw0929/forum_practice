@@ -1,6 +1,7 @@
 # encoding: utf-8
 class PostsController < ApplicationController
   before_filter :set_board
+  before_filter :authenticate_user!, :except => [:show, :index]
 
   # 首頁
   def index
