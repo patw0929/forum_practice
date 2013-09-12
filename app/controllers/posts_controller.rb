@@ -1,6 +1,7 @@
 # encoding: utf-8
 class PostsController < ApplicationController
   before_filter :set_board
+  before_filter :find_post, :only => [:edit, :update, :destroy]
   before_filter :authenticate_user!, :except => [:show, :index]
 
   # 首頁
@@ -32,13 +33,10 @@ class PostsController < ApplicationController
 
   # 編輯
   def edit
-    @post = current_user.posts.find(params[:id])
   end
 
   # 編輯 (更新)
   def update
-    @post = current_user.posts.find(params[:id])
-
     if @post.update_attributes(params[:post])
       redirect_to board_post_path(@board, @post), :notice => "文章已成功被更新。"
     else
@@ -48,8 +46,6 @@ class PostsController < ApplicationController
 
   # 刪除
   def destroy
-    @post = current_user.posts.find(params[:id])
-
     if @post.destroy
       redirect_to board_posts_path(@board)
     else
@@ -60,6 +56,10 @@ class PostsController < ApplicationController
   private
   def set_board
     @board = Board.find(params[:board_id])
+  end
+
+  def find_post
+    @post = current_user.posts.find(params[:id])
   end
 
 end

@@ -6,6 +6,8 @@ class Admin::BoardsController < ApplicationController
   # 可將 Controller 中重複的方法抽出，在進入 Action 之前用 before_action
   # :only => 代表只用在這幾個 Action 上
   # http://ihower.tw/rails3/actioncontroller.html
+  # 
+  # require_is_admin 是用來檢查是否為 admin 的共用方法，定義在 application_controller 中
   before_filter :require_is_admin
   before_filter :set_board, :only => [:show, :edit, :update, :destroy]
 
