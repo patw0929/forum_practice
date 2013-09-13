@@ -16,5 +16,6 @@ end
 if File.exist?('/usr/local/bin/pandoc')
   PandocRuby.bin_path = '/usr/local/bin'
 elsif
-  File.exist?('/usr/bin/pandoc') PandocRuby.bin_path = '/usr/bin'
+  File.exist?('/usr/bin/pandoc')
+  PandocRuby.bin_path = '/usr/bin'
 end

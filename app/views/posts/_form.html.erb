@@ -15,12 +15,12 @@
 <%= f.text_area :content %></p>
 
 <div class="field">
-  <% if @post.excerpt_image.file? %>
-    <p><%= image_tag(@post.excerpt_image.url(:thumb)) %></p>
+  <% if @post.image.file? %>
+    <p><%= image_tag(@post.image.url(:thumb)) %></p>
   <% end %>
-  
+
   <%= f.label :upload_image %><br />
-  <%= f.file_field :excerpt_image %>
+  <%= f.file_field :image %>
 </div>
 
 <p><%= f.submit %></p>
