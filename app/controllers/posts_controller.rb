@@ -1,7 +1,7 @@
 # encoding: utf-8
 class PostsController < ApplicationController
   before_filter :set_board
-  before_filter :find_post, :only => [:edit, :update, :destroy]
+  before_filter :set_post, :only => [:edit, :update, :destroy]
   before_filter :authenticate_user!, :except => [:show, :index]
 
   # 首頁
@@ -54,12 +54,12 @@ class PostsController < ApplicationController
   end
 
   private
+
   def set_board
     @board = Board.find(params[:board_id])
   end
 
-  def find_post
+  def set_post
     @post = current_user.posts.find(params[:id])
   end
-
 end
