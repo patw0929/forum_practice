@@ -17,5 +17,5 @@
 # Ignore database config
 /config/database.yml
 
-# Ignore upload image files
-/public/system/posts/
+# Ignore upload files
+/public/system/
