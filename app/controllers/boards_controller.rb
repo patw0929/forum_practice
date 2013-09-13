@@ -13,7 +13,7 @@ class BoardsController < ApplicationController
 
   # 單篇
   def show
-    @posts = @board.posts.paginate(:page => params[:page], :per_page => 5)
+    @posts = @board.posts.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   private

@@ -3,8 +3,11 @@
 <h2>文章列表 (目前共 <%= @board.posts.size %> 篇文章)</h2>
 <table>
   <tr>
+    <th>ID</th>
     <th>標題</th>
     <th>內文</th>
+    <th>建立時間</th>
+    <th>更新時間</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,10 +15,12 @@
 
   <% @posts.each do |post| %>
     <tr>
+      <td><%= post.id %></td>
       <td><%= post.title %></td>
       <td><%= post.content %></td>
+      <td><%= l(post.created_at, :format => :short) %></td>
+      <td><%= l(post.updated_at, :format => :short) %></td>
       <td><%= link_to("檢視", board_post_path(@board, post)) %></td>
-      <% #NOTE: 注意這邊 Rails 101 打錯了，不應該是 @post，應該是 post 才對。 %>
       <% if current_user && post.user == current_user %>
         <td><%= link_to("編輯", edit_board_post_path(@board, post)) %></td>
         <td><%= link_to("刪除", board_post_path(@board, post), :confirm => "您確定要刪除嗎？", :method => :delete) %></td>
