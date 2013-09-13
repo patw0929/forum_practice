@@ -42,3 +42,6 @@ gem "devise"
 gem "will_paginate"
 
 gem "paperclip"
+
+gem "populator"
+gem "faker"
