@@ -6,6 +6,6 @@
 <% end %>
 
 <% if current_user && current_user.is_admin? %>
-  <p><%= link_to("A-編輯文章", edit_board_post_path(@board, @post)) %></p>
+  <p><%= link_to("A-編輯文章", edit_admin_board_post_path(@board, @post)) %></p>
 <% end %>
 <p><%= link_to("返回", board_posts_path(@board)) %></p>
