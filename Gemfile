@@ -43,5 +43,7 @@ gem "will_paginate"
 
 gem "paperclip"
 
-gem "populator"
-gem "faker"
+group :development do
+  gem "populator"
+  gem "faker"
+end
