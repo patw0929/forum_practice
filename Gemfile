@@ -47,3 +47,8 @@ group :development do
   gem "populator"
   gem "faker"
 end
+
+# Capistrano
+gem "capistrano"
+gem "capistrano-ext"
+
