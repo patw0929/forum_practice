@@ -28,6 +28,6 @@ end
  
 desc "Create database.yml and asset packages for production"
 after("deploy:finalize_update") do
-  db_config = "#{shared_path}/config/database.yml.production"
+  db_config = "#{shared_path}/config/database.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
 end
