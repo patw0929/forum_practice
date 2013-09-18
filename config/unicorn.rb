@@ -13,8 +13,6 @@ stderr_path "/home/apps/forum_practice/shared/log/unicorn.log"
 stdout_path "/home/apps/forum_practice/shared/log/unicorn.log"
 
 preload_app true
-GC.respond_to?(:copy_on_write_friendly=) and
-  GC.copy_on_write_friendly = true
 
 check_client_connection false
 
