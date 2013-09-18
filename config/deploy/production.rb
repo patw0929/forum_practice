@@ -19,13 +19,6 @@ set :group, "apps"
 
 default_environment["PATH"] = "/usr/local/rbenv/shims:/opt/ree/bin:/usr/local/bin:/usr/bin:/bin:/usr/games"
  
-namespace :deploy do
-  desc "restart"
-  task :restart do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-end
- 
 desc "Create database.yml and asset packages for production"
 after("deploy:finalize_update") do
   db_config = "#{shared_path}/config/database.yml"
