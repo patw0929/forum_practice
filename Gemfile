@@ -48,6 +48,8 @@ group :development do
   gem "faker"
 end
 
+gem 'capistrano-unicorn', :require => false
+
 # Capistrano
 gem "capistrano"
 gem "capistrano-ext"
